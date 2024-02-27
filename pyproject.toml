@@ -1,0 +1,95 @@
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+
+[tool.bandit]
+skips = ["B101", "B608"]
+
+[tool.black]
+extend-exclude = '''
+(
+\.git |
+\.__pycache__ |
+\.hg |
+\.mypy_cache |
+\.tox |
+\.venv |
+_build |
+buck-out |
+build |
+dist |
+data
+)
+'''
+include = '\.pyi?$'
+line-length = 88
+target-version = ["py38"]
+
+[tool.coverage.run]
+branch = true
+
+[tool.flake8]
+extend-ignore = ["E203", "W503", "E402"]
+extend-immutable-calls = ["pathlib.Path", "Path"]
+max-complexity = 10
+max-line-length = 120
+per-file-ignores = "__init__.py:F401"
+
+[tool.isort]
+filter_files = true
+known_first_party = ["Challenge"]
+known_third_party = ["tomlkit", "yaml"]
+profile = "black"
+
+[tool.mypy]
+allow_redefinition = true
+check_untyped_defs = true
+ignore_missing_imports = true
+install_types = false  # Note: does not work with pre-commit
+non_interactive = false  # Note: if needs installing check it is in precommit for mypy
+plugins = "numpy.typing.mypy_plugin"
+pretty = true
+show_error_codes = true
+warn_unused_configs = true
+
+[tool.poetry]
+authors = ['Pedro Neves <pedrocaldeiraneves@gmail.com>']
+description = ""
+name = "challenge"
+packages = [{include = "src"}]
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+numpy = "^1.23.1"
+pandas = "^1.4.3"
+python = "^3.11"
+
+[tool.poetry.dev-dependencies]
+bandit = "1.7.4"
+black = "22.6.0"
+flake8 = "5.0.4"
+isort = "^5.12.0"
+jupyter = "^1.0.0"
+jupyterlab = "^3.4.3"
+mypy = "0.971"
+pre-commit = "^2.20.0"
+pydocstyle = "6.1.1"
+pytest = "^7.1.2"
+pytest-cov = "^3.0.0"
+python-dotenv = "^1.0.1"
+
+[tool.pycodestyle]
+max-line-length = 120
+
+[tool.pydocstyle]
+add_ignore = ["D107", "D203", "D213", "D413"]
+convention = "numpy"
+
+[tool.pylint]
+disable = ["C0103", "R0903", "W0108", "W0107", "W0511"]
+max-args = 10
+max-line-length = 120
+
+[tool.pytest.ini_options]
+addopts = "--doctest-modules"
+filterwarnings = "ignore::DeprecationWarning"
