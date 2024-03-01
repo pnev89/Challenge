@@ -1,39 +1,64 @@
+"""Build query."""
 import pandas as pd
 from datetime import timedelta
-from pandasql import sqldf
+
 
 class BuildQuery:
-    
-    def build_query(self, incidents_table: pd.DataFrame, change_events_table: pd.DataFrame):
+    """Build query."""
 
+    def run_query(
+        self, incidents_table: pd.DataFrame, change_events_table: pd.DataFrame
+    ):
+        """Run query.
+
+        Parameters
+        ----------
+        incidents_table : pd.DataFrame
+            incidents table
+        change_events_table : pd.DataFrame
+            change events table
+
+        Returns
+        -------
+        pd.Dataframe
+            Aggregation results
+        """
         time_interval = timedelta(minutes=60).total_seconds()
 
-        self.query = f"""SELECT 
-                    '(' || {incidents_table}.title || ',' || {change_events_table}.title || ')' as key,
-                    COUNT(*) AS value
-                            
-                FROM 
-                    {incidents_table}
-                JOIN 
-                    {change_events_table} ON {incidents_table}.account_id = {change_events_table}.account_id
-                    AND {incidents_table}.service_id = {change_events_table}.service_id
-                WHERE 
-                    {change_events_table}.triggered_at_timestamp >= DATETIME({incidents_table}.triggered_at_timestamp, '-{time_interval} seconds')
-                        AND {change_events_table}.triggered_at_timestamp < {incidents_table}.triggered_at_timestamp
-                GROUP BY 
-                    {incidents_table}.title, {change_events_table}.title;
-                        """
-    
-    
-    def run_query(self) -> pd.DataFrame:
+        # Perform the join
+        merged_df = pd.merge(
+            incidents_table,
+            change_events_table,
+            on=["account_id", "service_id"],
+            suffixes=("_incident", "_change"),
+        )
 
-        try:
-            return sqldf(self.query)
+        # Filter the merged DataFrame based on the time condition
+        filtered_df = merged_df[
+            (
+                merged_df["triggered_at_timestamp_change"]
+                >= merged_df["triggered_at_timestamp_incident"]
+                - timedelta(seconds=time_interval)
+            )
+            & (
+                merged_df["triggered_at_timestamp_change"]
+                < merged_df["triggered_at_timestamp_incident"]
+            )
+        ]
 
-        except Exception as e:
+        # Group by incident and change titles, and count occurrences
+        result_df = (
+            filtered_df.groupby(["title_incident", "title_change"])
+            .size()
+            .reset_index(name="value")
+        )
 
-            print("An error occurred:", e)
-        
-    def print_query(self):
-        print(self.query)
+        # Construct the key column
+        result_df["key"] = (
+            "("
+            + result_df["title_incident"]
+            + "," + result_df["title_change"] + ")"
+        )
 
+        # Reorder the columns
+        return result_df[["key", "value"]]

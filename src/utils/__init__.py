@@ -1,5 +1,6 @@
+"""Utils module."""
 from utils._file_handling import FileHandling
-from utils._build_query import BuildQuery
+from src.utils._build_query import BuildQuery
 
 
 __all__ = [

@@ -37,3 +37,6 @@ After that you need to start the environment. For that you should use:
 ```zsh
 poetry shell
 ```
+
+# To run the challenge
+You have either analysys.ipynb or src/run.py which runs everything via .py
