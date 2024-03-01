@@ -33,7 +33,9 @@ class BuildQuery:
             suffixes=("_incident", "_change"),
         )
 
-        # Filter the merged DataFrame based on the time condition
+        # Filter the merged DataFrame based on the time condition 
+        # triggered_at_timestamp_change in 
+        # [triggered_at_timestamp_incident - 60 min ; triggered_at_timestamp_incident]
         filtered_df = merged_df[
             (
                 merged_df["triggered_at_timestamp_change"]
