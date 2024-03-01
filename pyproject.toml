@@ -25,9 +25,6 @@ include = '\.pyi?$'
 line-length = 88
 target-version = ["py38"]
 
-[tool.coverage.run]
-branch = true
-
 [tool.flake8]
 extend-ignore = ["E203", "W503", "E402"]
 extend-immutable-calls = ["pathlib.Path", "Path"]
@@ -61,7 +58,7 @@ version = "0.1.0"
 
 [tool.poetry.dependencies]
 numpy = "^1.23.1"
-pandas = "^1.4.3"
+pandas = "2.0.2"
 python = "^3.11"
 
 [tool.poetry.dev-dependencies]
@@ -74,9 +71,11 @@ jupyterlab = "^3.4.3"
 mypy = "0.971"
 pre-commit = "^2.20.0"
 pydocstyle = "6.1.1"
-pytest = "^7.1.2"
-pytest-cov = "^3.0.0"
 python-dotenv = "^1.0.1"
+sqldf = "^0.4.2"
+pandasql = "0.7.3"
+pyzmq = "25.1.2 "
+
 
 [tool.pycodestyle]
 max-line-length = 120
@@ -89,7 +88,3 @@ convention = "numpy"
 disable = ["C0103", "R0903", "W0108", "W0107", "W0511"]
 max-args = 10
 max-line-length = 120
-
-[tool.pytest.ini_options]
-addopts = "--doctest-modules"
-filterwarnings = "ignore::DeprecationWarning"

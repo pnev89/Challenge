@@ -1,0 +1,34 @@
+key,value
+"(***************critical incident***************,Bug fix in code: line 100)",5
+"(***************critical incident***************,Build Success: Increase snapshot create timeout to 30 seconds)",4
+"(***************critical incident***************,DE-100: Change AWS Security Group Policy (committed by John Smith))",6
+"(***************critical incident***************,Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.)",2
+"(***************critical incident***************,Merge Pull Request)",7
+"(***************critical incident***************,Production Jenkins Pipeline Change event.)",4
+"(***************critical incident***************,Successfully deployed module)",8
+"(***************not important incident***************,Bug fix in code: line 100)",4
+"(***************not important incident***************,Build Success: Increase snapshot create timeout to 30 seconds)",3
+"(***************not important incident***************,DE-100: Change AWS Security Group Policy (committed by John Smith))",13
+"(***************not important incident***************,Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.)",1
+"(***************not important incident***************,Merge Pull Request)",7
+"(***************not important incident***************,Production Jenkins Pipeline Change event.)",7
+"(***************not important incident***************,Successfully deployed module)",4
+"(API endpoint 123 is not responding,DE-100: Change AWS Security Group Policy (committed by John Smith))",2
+"(API endpoint 123 is not responding,Merge Pull Request)",5
+"(API endpoint 456 is not responding,Build Success: Increase snapshot create timeout to 30 seconds)",1
+"(API endpoint 456 is not responding,Merge Pull Request)",2
+"(API endpoint 789 is not responding,Merge Pull Request)",3
+"(Are you awake?,Bug fix in code: line 100)",1
+"(Are you awake?,Build Success: Increase snapshot create timeout to 30 seconds)",2
+"(Are you awake?,DE-100: Change AWS Security Group Policy (committed by John Smith))",10
+"(Are you awake?,Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.)",4
+"(Are you awake?,Merge Pull Request)",4
+"(Are you awake?,Production Jenkins Pipeline Change event.)",16
+"(Are you awake?,Successfully deployed module)",4
+"(Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.,Successfully deployed module)",1
+"(HTTPS service is down,Build Success: Increase snapshot create timeout to 30 seconds)",3
+"(HTTPS service is down,DE-100: Change AWS Security Group Policy (committed by John Smith))",6
+"(Health check error,Bug fix in code: line 100)",1
+"(Health check error,DE-100: Change AWS Security Group Policy (committed by John Smith))",6
+"(Health check error,Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.)",1
+"(Health check error,Successfully deployed module)",3
