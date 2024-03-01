@@ -26,7 +26,9 @@ pre-commit run --all-files
 #### Poetry virtual env
 
 In order to setup the environment you need to
-[download poetry](https://python-poetry.org/docs/) and install it using
+```zsh
+pip install poetry
+```
 
 ```zsh
 poetry install
@@ -39,4 +41,4 @@ poetry shell
 ```
 
 # To run the challenge
-You have either analysys.ipynb or src/run.py which runs everything via .py
+You have either analysis.ipynb or src/run.py which runs everything via .py
